@@ -28,8 +28,7 @@ const appProfiles: AppProfile[] = [
     accent: '#e65f2a',
     shadow: 'rgba(230, 95, 42, 0.22)',
     summary: '映画を観た直後の熱量を、少人数の会話へつなぐ。',
-    description:
-      '日本で上映中の映画を評価・記録し、2〜4人の安全なセッションで感想を語り合えるiOSアプリ。映画ごとの待機列、レビュー、フレンド、通報・ブロックまで含めて設計しています。',
+    description: '上映中の映画を記録し、2〜4人で感想を語り合えるiOSアプリ。',
     highlights: ['上映中映画の一覧と評価記録', '映画単位のマッチング', 'UGC安全機能と審査用デモ'],
     stack: ['SwiftUI', 'Firebase', 'Cloud Functions', 'App Store Review'],
     images: [
@@ -49,8 +48,7 @@ const appProfiles: AppProfile[] = [
     accent: '#1f4f8f',
     shadow: 'rgba(31, 79, 143, 0.22)',
     summary: '月が欠けるまで、スマホの誘惑を閉じる集中タイマー。',
-    description:
-      '勉強時間を予約し、その間だけ選んだアプリやWebサイトをブロックするiOS向けフォーカスアプリ。月のビジュアルタイマー、ホーホー、Apple Watch連携、StoreKitの買い切り導線まで作り込んでいます。',
+    description: '予約した集中時間だけ、選んだアプリやサイトをブロックするフォーカスアプリ。',
     highlights: ['Screen Time API連携', '月のビジュアルタイマー', 'Watch / Live Activity対応'],
     stack: ['SwiftUI', 'Screen Time API', 'WidgetKit', 'StoreKit 2'],
     images: [
@@ -70,8 +68,7 @@ const appProfiles: AppProfile[] = [
     accent: '#008f8c',
     shadow: 'rgba(0, 143, 140, 0.22)',
     summary: 'うちなーぐちを、レッスンとクイズで続けられる形に。',
-    description:
-      '沖縄語・沖縄文化を学ぶためのiOSアプリ。日常会話、地名、苗字、歴史テーマなどを、日英対応のレッスン・復習・チェックポイントとして体験できるようにしています。',
+    description: 'うちなーぐちと沖縄文化を、レッスンとクイズで学べるiOSアプリ。',
     highlights: ['日英対応レッスン', 'クイズと復習フロー', '文化テーマ別コンテンツ'],
     stack: ['SwiftUI', 'Localization', 'XCTest', 'App Store Assets'],
     images: [
@@ -80,8 +77,8 @@ const appProfiles: AppProfile[] = [
         alt: 'Uchinalingoのホーム画面スクリーンショット',
       },
       {
-        src: '/apps/uchinalingo/lesson.png',
-        alt: 'Uchinalingoのレッスン画面スクリーンショット',
+        src: '/apps/uchinalingo/ikusayu.png',
+        alt: 'Uchinalingoのいくさ世（世がわり）出題画面スクリーンショット',
       },
     ],
   },
@@ -169,9 +166,7 @@ function App() {
       <section className="heroSection" id="top">
         <div className="heroCopy">
           <h1>iOS Apps</h1>
-          <p>
-            映画、集中、沖縄語学習。日常の熱量を扱う3つのiOSアプリを、企画から実装、App Store提出準備まで一貫して作っています。
-          </p>
+          <p>映画、集中、沖縄語学習。3つのiOSアプリを企画から実装まで手がけています。</p>
           <div className="heroActions">
             <a href="#apps" className="primaryAction">
               3つのアプリを見る
