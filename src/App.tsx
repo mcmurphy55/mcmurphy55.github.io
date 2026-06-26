@@ -24,7 +24,7 @@ type AccentStyle = CSSProperties & {
 const appProfiles: AppProfile[] = [
   {
     name: 'Cinemagora',
-    url: 'https://github.com/mcmurphy55/Cinemagora',
+    url: 'https://apps.apple.com/jp/app/cinemagora/id6759182517',
     accent: '#e65f2a',
     shadow: 'rgba(230, 95, 42, 0.22)',
     summary: '映画を観た直後の熱量を、少人数の会話へつなぐ。',
@@ -45,7 +45,7 @@ const appProfiles: AppProfile[] = [
   },
   {
     name: 'Attention',
-    url: 'https://github.com/mcmurphy55/Attention',
+    url: 'https://apps.apple.com/jp/app/attention-moon-study-timer/id6767784989',
     accent: '#1f4f8f',
     shadow: 'rgba(31, 79, 143, 0.22)',
     summary: '月が欠けるまで、スマホの誘惑を閉じる集中タイマー。',
@@ -66,7 +66,7 @@ const appProfiles: AppProfile[] = [
   },
   {
     name: 'Uchinalingo',
-    url: 'https://github.com/mcmurphy55/Uchinalingo',
+    url: 'https://apps.apple.com/jp/app/uchinalingo/id6753190366',
     accent: '#008f8c',
     shadow: 'rgba(0, 143, 140, 0.22)',
     summary: 'うちなーぐちを、レッスンとクイズで続けられる形に。',
@@ -92,6 +92,15 @@ const githubIcon = (
     <path
       fill="currentColor"
       d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.35 1.08 2.92.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.01c.85 0 1.7.11 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
+    />
+  </svg>
+)
+
+const appStoreIcon = (
+  <svg viewBox="0 0 24 24" aria-hidden="true" className="buttonIcon">
+    <path
+      fill="currentColor"
+      d="M16.36 12.7c-.02-2.07 1.69-3.06 1.77-3.11-.96-1.41-2.46-1.6-3-1.62-1.27-.13-2.49.75-3.14.75-.65 0-1.65-.73-2.72-.71-1.4.02-2.69.81-3.41 2.07-1.45 2.52-.37 6.25 1.04 8.29.69 1 1.51 2.12 2.58 2.08 1.04-.04 1.43-.67 2.69-.67 1.25 0 1.6.67 2.69.65 1.11-.02 1.82-1.02 2.5-2.02.79-1.16 1.11-2.28 1.13-2.34-.03-.01-2.17-.83-2.19-3.29ZM14.3 6.58c.57-.69.96-1.65.85-2.6-.82.03-1.82.55-2.41 1.24-.53.6-1 1.58-.87 2.51.91.07 1.85-.46 2.43-1.15Z"
     />
   </svg>
 )
@@ -128,8 +137,8 @@ function AppSection({ app, index }: { app: AppProfile; index: number }) {
           ))}
         </div>
         <a className="githubButton" href={app.url} target="_blank" rel="noreferrer">
-          {githubIcon}
-          GitHubで見る
+          {appStoreIcon}
+          App Storeで見る
         </a>
       </div>
       <div className="appScreens" aria-label={`${app.name}のスクリーンショット`}>
@@ -146,7 +155,7 @@ function App() {
     <main>
       <header className="siteHeader">
         <a href="#top" className="brandLink" aria-label="ページ先頭へ">
-          DM
+          mc
         </a>
         <nav aria-label="アプリ紹介">
           {appProfiles.map((app) => (
@@ -159,7 +168,7 @@ function App() {
 
       <section className="heroSection" id="top">
         <div className="heroCopy">
-          <h1>iOS Apps by mcmurphy55</h1>
+          <h1>iOS Apps</h1>
           <p>
             映画、集中、沖縄語学習。日常の熱量を扱う3つのiOSアプリを、企画から実装、App Store提出準備まで一貫して作っています。
           </p>
@@ -196,7 +205,7 @@ function App() {
       </section>
 
       <footer className="siteFooter">
-        <p>mcmurphy55 / mcmurphy55</p>
+        <p>mcmurphy55</p>
         <a href="https://github.com/mcmurphy55" target="_blank" rel="noreferrer">
           GitHub
         </a>

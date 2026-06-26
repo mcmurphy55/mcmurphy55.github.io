@@ -1,4 +1,4 @@
-# iOS Apps by mcmurphy55
+# iOS Apps
 
 GitHub Pages portfolio for three iOS apps:
 
