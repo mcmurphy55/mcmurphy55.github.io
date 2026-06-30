@@ -179,6 +179,17 @@
   transform: translateX(-50%);
 }
 
+.posterShot {
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: 0 24px 70px rgba(15, 20, 30, 0.12);
+}
+
+.posterShot::before {
+  display: none;
+}
+
 .phone img {
   display: block;
   width: 100%;
@@ -430,9 +441,7 @@
   }
 
   .siteHeader nav {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    padding-top: 3px;
+    display: none;
   }
 
   .heroCopy h1 {
@@ -475,14 +484,15 @@
   }
 
   .appScreens {
-    grid-template-columns: repeat(2, minmax(135px, 1fr));
-    overflow-x: auto;
+    grid-template-columns: repeat(2, 132px);
+    justify-content: center;
+    overflow: visible;
     margin-inline: -14px;
     padding: 26px 14px;
   }
 
   .appScreens .phone {
-    width: 145px;
+    width: 132px;
   }
 
   .appDescription {

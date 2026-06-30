@@ -13,7 +13,12 @@ type AppProfile = {
   images: {
     src: string
     alt: string
+    presentation?: 'poster'
   }[]
+  heroImage?: {
+    src: string
+    alt: string
+  }
 }
 
 type AccentStyle = CSSProperties & {
@@ -33,14 +38,20 @@ const appProfiles: AppProfile[] = [
     stack: ['SwiftUI', 'Firebase', 'Cloud Functions', 'App Store Review'],
     images: [
       {
-        src: '/apps/cinemagora/talk.png',
-        alt: 'Cinemagoraの討論セッション紹介スクリーンショット',
+        src: '/apps/cinemagora/home.png',
+        alt: 'CinemagoraのHome画面スクリーンショット',
+        presentation: 'poster',
       },
       {
-        src: '/apps/cinemagora/match.png',
-        alt: 'Cinemagoraのランダムマッチ紹介スクリーンショット',
+        src: '/apps/cinemagora/session.png',
+        alt: 'Cinemagoraのセッション画面スクリーンショット',
+        presentation: 'poster',
       },
     ],
+    heroImage: {
+      src: '/apps/cinemagora/hero-home.png',
+      alt: 'Cinemagoraの実際のHome画面スクリーンショット',
+    },
   },
   {
     name: 'Attention',
@@ -104,7 +115,7 @@ const appStoreIcon = (
 
 function PhoneMockup({ image, offset = false }: { image: AppProfile['images'][number]; offset?: boolean }) {
   return (
-    <figure className={`phone ${offset ? 'phoneOffset' : ''}`}>
+    <figure className={`phone ${image.presentation === 'poster' ? 'posterShot' : ''} ${offset ? 'phoneOffset' : ''}`}>
       <img src={image.src} alt={image.alt} />
     </figure>
   )
@@ -178,7 +189,7 @@ function App() {
           </div>
         </div>
         <div className="heroVisual" aria-label="3つのiOSアプリのスクリーンショット">
-          <PhoneMockup image={appProfiles[0].images[0]} />
+          <PhoneMockup image={appProfiles[0].heroImage ?? appProfiles[0].images[0]} />
           <PhoneMockup image={appProfiles[1].images[1]} offset />
           <PhoneMockup image={appProfiles[2].images[0]} />
         </div>
