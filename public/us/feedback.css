@@ -1,0 +1,186 @@
+/* Tester feedback page, on top of us.css. */
+
+.ask {
+  margin: 20px 0 8px;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+}
+
+.ask h2 {
+  margin: 0 0 6px;
+  padding: 0;
+  border: 0;
+  font-size: 19px;
+}
+
+.ask ol {
+  margin: 0;
+  padding-left: 1.3em;
+}
+
+details.steps {
+  margin: 12px 0 0;
+  color: var(--secondary);
+  font-size: 16px;
+}
+
+details.steps summary {
+  cursor: pointer;
+  color: var(--ink);
+}
+
+details.steps ol { margin: 8px 0 0; padding-left: 1.3em; }
+
+form#feedback h2 { margin-top: 32px; }
+
+.field {
+  margin: 18px 0 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.field > legend,
+.field > label.q {
+  display: block;
+  padding: 0;
+  margin: 0 0 8px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.field .hint {
+  display: block;
+  font-weight: normal;
+  color: var(--secondary);
+  font-size: 15px;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.choices.stack { flex-direction: column; align-items: stretch; }
+
+.choice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  min-height: 44px;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  cursor: pointer;
+  line-height: 1.35;
+}
+
+.choice input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--ink);
+}
+
+.choice:has(input:checked) {
+  border-color: var(--mustard);
+  box-shadow: inset 0 0 0 1px var(--mustard);
+}
+
+.choice:has(input:focus-visible) {
+  outline: 3px solid var(--mustard);
+  outline-offset: 2px;
+}
+
+textarea,
+input[type="text"],
+select {
+  width: 100%;
+  font: inherit;
+  font-size: 17px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
+
+textarea:focus,
+input[type="text"]:focus,
+select:focus {
+  outline: 3px solid var(--mustard);
+  outline-offset: 1px;
+}
+
+.follow { margin-top: 10px; }
+
+.pot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.privacy {
+  margin: 28px 0 0;
+  color: var(--secondary);
+  font-size: 15px;
+}
+
+.send-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 16px;
+}
+
+button {
+  font: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--ink);
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 22px;
+  min-height: 48px;
+  cursor: pointer;
+}
+
+button:focus-visible { outline: 3px solid var(--mustard); outline-offset: 2px; }
+button:disabled { opacity: 0.55; cursor: default; }
+
+button.quiet {
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+}
+
+#status { margin: 0; font-size: 15px; color: var(--secondary); }
+#status.error { color: #b3412f; }
+
+@media (prefers-color-scheme: dark) {
+  #status.error { color: #f08a72; }
+}
+
+#thanks {
+  margin-top: 28px;
+  padding: 18px 20px;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--mustard);
+  border-radius: 12px;
+}
+
+#thanks:focus { outline: none; }
+#thanks h2 { margin: 0 0 6px; padding: 0; border: 0; }

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Us テスターの感想</title>
+  <meta name="description" content="Us の TestFlight 版を試した感想を、開発者に送るページです。3分ほどで、ほとんどはタップだけです。">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/us/icon.png">
+  <link rel="stylesheet" href="/us/us.css">
+  <link rel="stylesheet" href="/us/feedback.css">
+</head>
+<body>
+<main>
+  <header>
+    <img src="/us/icon.png" alt="">
+    <div class="app">Us<small>家族の物語</small></div>
+    <nav class="lang"><a href="/us/feedback/" lang="en">English</a></nav>
+  </header>
+
+  <h1>テスターの感想</h1>
+  <p class="lead">Us を試してくださって、ありがとうございます。3分ほどで終わり、ほとんどはタップで答えられます。答えが要るのは最初の質問だけです。</p>
+
+  <section class="ask" aria-labelledby="ask-title">
+    <h2 id="ask-title">いちばん知りたいこと</h2>
+    <ol>
+      <li>迷った所、止まった所</li>
+      <li>話を一つ録るところまで行けたか</li>
+    </ol>
+    <details class="steps">
+      <summary>まだなら、10分の試し方</summary>
+      <ol>
+        <li>絵を選んで<strong>「これが自分です」</strong>を押す。</li>
+        <li>ホームの <strong>＋</strong> で、家族を一人足す。</li>
+        <li>その人か自分の絵を押し、<strong>「サイコロをふる」</strong>から<strong>「この質問を聞く」</strong>。</li>
+        <li>その人と、または自分ひとりで、話を録る。<strong>「止めて見直す」</strong>から<strong>「話を保存」</strong>。</li>
+        <li>アルバムを開き、文字起こしを読む。</li>
+      </ol>
+    </details>
+  </section>
+
+  <form id="feedback" novalidate>
+    <h2>はじめの10分</h2>
+
+    <fieldset class="field" data-field data-label="どこまで進んだか">
+      <legend>どこまで進みましたか？ <span class="hint">必須</span></legend>
+      <div class="choices stack">
+        <label class="choice"><input type="radio" name="reached" value="none" id="reached-none">自分を決める前にやめた</label>
+        <label class="choice"><input type="radio" name="reached" value="me" id="reached-me">自分の絵を選んだ</label>
+        <label class="choice"><input type="radio" name="reached" value="family" id="reached-family">家族を一人足した</label>
+        <label class="choice"><input type="radio" name="reached" value="recorded" id="reached-recorded">話を一つ録った</label>
+        <label class="choice"><input type="radio" name="reached" value="read" id="reached-read">アルバムと文字起こしを読んだ</label>
+      </div>
+    </fieldset>
+
+    <div class="field" data-field data-label="迷った所">
+      <label class="q" for="stuck">迷った所、止まった所はありましたか？<span class="hint">ボタンを探した、くらいの小さなことでも助かります。</span></label>
+      <textarea id="stuck" name="stuck" maxlength="2000"></textarea>
+    </div>
+
+    <h2>困ったこと</h2>
+
+    <fieldset class="field" data-field data-label="困ったこと">
+      <legend>うまくいかないことはありましたか？</legend>
+      <div class="choices stack">
+        <label class="choice"><input type="radio" name="problem" value="none" id="problem-none">特になかった</label>
+        <label class="choice"><input type="radio" name="problem" value="confusing" id="problem-confusing">分かりにくい所があった</label>
+        <label class="choice"><input type="radio" name="problem" value="wrong" id="problem-wrong">動かない所、表示がおかしい所があった</label>
+        <label class="choice"><input type="radio" name="problem" value="crash" id="problem-crash">落ちた、固まった、何かが消えた</label>
+      </div>
+    </fieldset>
+
+    <div class="field follow" data-field data-label="何が起きたか" data-reveal-for="problem" data-reveal-values="confusing wrong crash" hidden>
+      <label class="q" for="problemText">何が起きましたか？<span class="hint">直前に押したものが分かると、いちばん助かります。</span></label>
+      <textarea id="problemText" name="problemText" maxlength="2000"></textarea>
+    </div>
+
+    <h2>サイコロで出た質問</h2>
+
+    <fieldset class="field" data-field data-label="質問の聞きやすさ">
+      <legend>聞いてみて、どうでしたか？</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="question" value="natural" id="question-natural">自然に聞けた</label>
+        <label class="choice"><input type="radio" name="question" value="odd" id="question-odd">少し聞きにくい</label>
+        <label class="choice"><input type="radio" name="question" value="misfit" id="question-misfit">うちの家族に合わない</label>
+        <label class="choice"><input type="radio" name="question" value="notyet" id="question-notyet">ふらなかった</label>
+      </div>
+    </fieldset>
+
+    <div class="field follow" data-field data-label="その質問" data-reveal-for="question" data-reveal-values="odd misfit" hidden>
+      <label class="q" for="questionText">どの質問で、どこが引っかかりましたか？</label>
+      <textarea id="questionText" name="questionText" maxlength="2000"></textarea>
+    </div>
+
+    <h2>文字起こし</h2>
+
+    <fieldset class="field" data-field data-label="話した言語">
+      <legend>何語で話しましたか？</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="spoken" value="ja" id="spoken-ja">日本語</label>
+        <label class="choice"><input type="radio" name="spoken" value="en" id="spoken-en">英語</label>
+        <label class="choice"><input type="radio" name="spoken" value="other" id="spoken-other">ほかの言語</label>
+      </div>
+    </fieldset>
+
+    <div class="field follow" data-field data-label="ほかの言語" data-reveal-for="spoken" data-reveal-values="other" hidden>
+      <label class="q" for="spokenOther">何語ですか？</label>
+      <input type="text" id="spokenOther" name="spokenOther" maxlength="80">
+    </div>
+
+    <fieldset class="field" data-field data-label="文字起こしの出来">
+      <legend>文字起こしはどうでしたか？</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="transcript" value="right" id="transcript-right">合っていた</label>
+        <label class="choice"><input type="radio" name="transcript" value="names" id="transcript-names">名前や言葉が少し違った</label>
+        <label class="choice"><input type="radio" name="transcript" value="many" id="transcript-many">間違いが多かった</label>
+        <label class="choice"><input type="radio" name="transcript" value="notyet" id="transcript-notyet">録らなかった</label>
+      </div>
+    </fieldset>
+
+    <div class="field follow" data-field data-label="聞き違えた言葉" data-reveal-for="transcript" data-reveal-values="names many" hidden>
+      <label class="q" for="transcriptText">聞き違えた名前や言葉は？<span class="hint">話したことと、書かれたことを並べてください。</span></label>
+      <textarea id="transcriptText" name="transcriptText" maxlength="2000"></textarea>
+    </div>
+
+    <h2>お使いの iPhone</h2>
+
+    <div class="field" data-field data-label="iPhone">
+      <label class="q" for="iphone">どの iPhone ですか？</label>
+      <select id="iphone" name="iphone">
+        <option value="">選ぶ</option>
+        <option value="17">iPhone 17、17 Pro、Air</option>
+        <option value="16">iPhone 16、16 Plus、16 Pro、16e</option>
+        <option value="15pro">iPhone 15 Pro、15 Pro Max</option>
+        <option value="15">iPhone 15、15 Plus</option>
+        <option value="14">iPhone 14 のどれか</option>
+        <option value="13older">iPhone 13、SE、それより前</option>
+      </select>
+    </div>
+
+    <div class="field" data-field data-label="iOS">
+      <label class="q" for="ios">iOS のバージョン<span class="hint">設定 → 一般 → 情報。たとえば 26.1。</span></label>
+      <input type="text" id="ios" name="ios" maxlength="20" inputmode="decimal" autocomplete="off">
+    </div>
+
+    <fieldset class="field" data-field data-label="要約が出たか">
+      <legend>話を保存したあと、要約は出ましたか？</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="summary" value="yes" id="summary-yes">出た</label>
+        <label class="choice"><input type="radio" name="summary" value="no" id="summary-no">出なかった</label>
+        <label class="choice"><input type="radio" name="summary" value="notyet" id="summary-notyet">保存しなかった</label>
+      </div>
+    </fieldset>
+
+    <h2>言葉と値段</h2>
+
+    <div class="field" data-field data-label="不自然な言葉">
+      <label class="q" for="wording">分かりにくい言葉や、不自然な日本語はありましたか？<span class="hint">その言葉をそのまま書いてもらえると助かります。</span></label>
+      <textarea id="wording" name="wording" maxlength="2000"></textarea>
+    </div>
+
+    <fieldset class="field" data-field data-label="値段">
+      <legend>「Us のアンロック」は、ほかの家族全員との話を加えます。一度だけの購入で 980 円です。この値段をどう感じますか？<span class="hint">TestFlight では無料です。</span></legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="price" value="high" id="price-high">高い</label>
+        <label class="choice"><input type="radio" name="price" value="fair" id="price-fair">ちょうどいい</label>
+        <label class="choice"><input type="radio" name="price" value="low" id="price-low">もっと払ってもいい</label>
+        <label class="choice"><input type="radio" name="price" value="unsure" id="price-unsure">分からない</label>
+      </div>
+    </fieldset>
+
+    <h2>そのほか</h2>
+
+    <div class="field" data-field data-label="そのほか">
+      <label class="q" for="other">ほかに伝えたいことはありますか？</label>
+      <textarea id="other" name="other" maxlength="2000"></textarea>
+    </div>
+
+    <div class="field" data-field data-label="連絡先">
+      <label class="q" for="contact">お名前かメールアドレス<span class="hint">返事がほしいときだけ。空でもかまいません。</span></label>
+      <input type="text" id="contact" name="contact" maxlength="120" autocomplete="off">
+    </div>
+
+    <div class="pot" aria-hidden="true">
+      <label for="website">ここは空のままにしてください</label>
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <p class="privacy">答えは Google フォームを通して開発者に届き、開発者の Google アカウントに残ります。ここに書いたこと以外は集めません。名前やメールアドレス、端末の情報も、書かない限り届きません。ほかの人の個人的なことは書かないでください。</p>
+
+    <div class="send-row">
+      <button type="submit" id="send">感想を送る</button>
+      <p id="status" role="status" aria-live="polite"
+         data-need-reached="最初の質問「どこまで進みましたか？」に答えてください。"
+         data-sending="送っています…"
+         data-failed="送れませんでした。通信を確かめて、もう一度押してください。書いた内容は残っています。"></p>
+    </div>
+  </form>
+
+  <section id="thanks" tabindex="-1" hidden>
+    <h2>ありがとうございました</h2>
+    <p>感想を送りました。画面の写真や録画を見せたいときは、iPhone でスクリーンショットを撮り、TestFlight のフィードバックから送ってください。</p>
+    <button type="button" class="quiet" id="again">もう一度送る</button>
+  </section>
+
+  <footer>
+    <a href="/us/ja/">サポート</a><a href="/us/ja/privacy/">プライバシーポリシー</a><a href="/us/feedback/" lang="en">English</a>
+  </footer>
+</main>
+<script src="/us/feedback.js"></script>
+</body>
+</html>

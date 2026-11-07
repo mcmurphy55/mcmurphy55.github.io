@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Us Tester Feedback</title>
+  <meta name="description" content="Tell the developer of Us how the TestFlight build went. About three minutes, mostly taps.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/us/icon.png">
+  <link rel="stylesheet" href="/us/us.css">
+  <link rel="stylesheet" href="/us/feedback.css">
+</head>
+<body>
+<main>
+  <header>
+    <img src="/us/icon.png" alt="">
+    <div class="app">Us<small>Family Stories</small></div>
+    <nav class="lang"><a href="/us/ja/feedback/" lang="ja">日本語</a></nav>
+  </header>
+
+  <h1>Tester feedback</h1>
+  <p class="lead">Thanks for testing Us. This takes about three minutes, and most answers are one tap. Only the first question is required.</p>
+
+  <section class="ask" aria-labelledby="ask-title">
+    <h2 id="ask-title">What I most want to know</h2>
+    <ol>
+      <li>Where you hesitated or got stuck</li>
+      <li>Whether you got as far as recording a story</li>
+    </ol>
+    <details class="steps">
+      <summary>The 10-minute test, if you haven’t tried it yet</summary>
+      <ol>
+        <li>Choose a picture and tap <strong>This is me</strong>.</li>
+        <li>On Home, tap <strong>+</strong> and add one family member.</li>
+        <li>Tap their picture, or yours, then <strong>Roll the dice</strong> and <strong>Ask this question</strong>.</li>
+        <li>Record a story, with them or by yourself. Tap <strong>Stop &amp; review</strong>, then <strong>Save story</strong>.</li>
+        <li>Open the album and read the transcript.</li>
+      </ol>
+    </details>
+  </section>
+
+  <form id="feedback" novalidate>
+    <h2>Getting started</h2>
+
+    <fieldset class="field" data-field data-label="How far did you get">
+      <legend>How far did you get? <span class="hint">Required</span></legend>
+      <div class="choices stack">
+        <label class="choice"><input type="radio" name="reached" value="none" id="reached-none">I stopped before choosing myself</label>
+        <label class="choice"><input type="radio" name="reached" value="me" id="reached-me">I chose my picture</label>
+        <label class="choice"><input type="radio" name="reached" value="family" id="reached-family">I added a family member</label>
+        <label class="choice"><input type="radio" name="reached" value="recorded" id="reached-recorded">I recorded a story</label>
+        <label class="choice"><input type="radio" name="reached" value="read" id="reached-read">I read the album and the transcript</label>
+      </div>
+    </fieldset>
+
+    <div class="field" data-field data-label="Where they hesitated">
+      <label class="q" for="stuck">Where did you hesitate or get stuck?<span class="hint">Even small moments help, like a button you looked for.</span></label>
+      <textarea id="stuck" name="stuck" maxlength="2000"></textarea>
+    </div>
+
+    <h2>Problems</h2>
+
+    <fieldset class="field" data-field data-label="Did anything go wrong">
+      <legend>Did anything go wrong?</legend>
+      <div class="choices stack">
+        <label class="choice"><input type="radio" name="problem" value="none" id="problem-none">Nothing went wrong</label>
+        <label class="choice"><input type="radio" name="problem" value="confusing" id="problem-confusing">Something was confusing</label>
+        <label class="choice"><input type="radio" name="problem" value="wrong" id="problem-wrong">Something didn’t work or looked wrong</label>
+        <label class="choice"><input type="radio" name="problem" value="crash" id="problem-crash">It crashed, froze, or lost something</label>
+      </div>
+    </fieldset>
+
+    <div class="field follow" data-field data-label="What happened" data-reveal-for="problem" data-reveal-values="confusing wrong crash" hidden>
+      <label class="q" for="problemText">What happened?<span class="hint">What you tapped just before helps most.</span></label>
+      <textarea id="problemText" name="problemText" maxlength="2000"></textarea>
+    </div>
+
+    <h2>The question you rolled</h2>
+
+    <fieldset class="field" data-field data-label="How the question felt">
+      <legend>How did it feel to ask?</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="question" value="natural" id="question-natural">Natural</label>
+        <label class="choice"><input type="radio" name="question" value="odd" id="question-odd">A little odd</label>
+        <label class="choice"><input type="radio" name="question" value="misfit" id="question-misfit">Didn’t fit my family</label>
+        <label class="choice"><input type="radio" name="question" value="notyet" id="question-notyet">I didn’t roll one</label>
+      </div>
+    </fieldset>
+
+    <div class="field follow" data-field data-label="The question" data-reveal-for="question" data-reveal-values="odd misfit" hidden>
+      <label class="q" for="questionText">Which question was it, and what felt off?</label>
+      <textarea id="questionText" name="questionText" maxlength="2000"></textarea>
+    </div>
+
+    <h2>The transcript</h2>
+
+    <fieldset class="field" data-field data-label="Language spoken">
+      <legend>Which language did you speak?</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="spoken" value="en" id="spoken-en">English</label>
+        <label class="choice"><input type="radio" name="spoken" value="ja" id="spoken-ja">Japanese</label>
+        <label class="choice"><input type="radio" name="spoken" value="other" id="spoken-other">Another language</label>
+      </div>
+    </fieldset>
+
+    <div class="field follow" data-field data-label="Other language" data-reveal-for="spoken" data-reveal-values="other" hidden>
+      <label class="q" for="spokenOther">Which one?</label>
+      <input type="text" id="spokenOther" name="spokenOther" maxlength="80">
+    </div>
+
+    <fieldset class="field" data-field data-label="How the transcript did">
+      <legend>How did the transcript do?</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="transcript" value="right" id="transcript-right">It got it right</label>
+        <label class="choice"><input type="radio" name="transcript" value="names" id="transcript-names">A few names or words wrong</label>
+        <label class="choice"><input type="radio" name="transcript" value="many" id="transcript-many">Many mistakes</label>
+        <label class="choice"><input type="radio" name="transcript" value="notyet" id="transcript-notyet">I didn’t record</label>
+      </div>
+    </fieldset>
+
+    <div class="field follow" data-field data-label="Words it got wrong" data-reveal-for="transcript" data-reveal-values="names many" hidden>
+      <label class="q" for="transcriptText">Which names or words did it get wrong?<span class="hint">What you said, and what it wrote.</span></label>
+      <textarea id="transcriptText" name="transcriptText" maxlength="2000"></textarea>
+    </div>
+
+    <h2>Your iPhone</h2>
+
+    <div class="field" data-field data-label="iPhone">
+      <label class="q" for="iphone">Which iPhone?</label>
+      <select id="iphone" name="iphone">
+        <option value="">Choose</option>
+        <option value="17">iPhone 17, 17 Pro, or Air</option>
+        <option value="16">iPhone 16, 16 Plus, 16 Pro, or 16e</option>
+        <option value="15pro">iPhone 15 Pro or 15 Pro Max</option>
+        <option value="15">iPhone 15 or 15 Plus</option>
+        <option value="14">iPhone 14, any model</option>
+        <option value="13older">iPhone 13, SE, or older</option>
+      </select>
+    </div>
+
+    <div class="field" data-field data-label="iOS">
+      <label class="q" for="ios">iOS version<span class="hint">Settings → General → About. For example 26.1.</span></label>
+      <input type="text" id="ios" name="ios" maxlength="20" inputmode="decimal" autocomplete="off">
+    </div>
+
+    <fieldset class="field" data-field data-label="Summary appeared">
+      <legend>After you saved a story, did a summary appear?</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="summary" value="yes" id="summary-yes">Yes</label>
+        <label class="choice"><input type="radio" name="summary" value="no" id="summary-no">No</label>
+        <label class="choice"><input type="radio" name="summary" value="notyet" id="summary-notyet">I didn’t save one</label>
+      </div>
+    </fieldset>
+
+    <h2>Words and price</h2>
+
+    <div class="field" data-field data-label="Unnatural wording">
+      <label class="q" for="wording">Any English that sounds unnatural?<span class="hint">I’m not a native speaker. Copy the words if you can.</span></label>
+      <textarea id="wording" name="wording" maxlength="2000"></textarea>
+    </div>
+
+    <fieldset class="field" data-field data-label="Price">
+      <legend>Unlock Us adds everyone else in your family, for a one-time $14.99. How does that feel?<span class="hint">It’s free in TestFlight.</span></legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="price" value="high" id="price-high">Too much</label>
+        <label class="choice"><input type="radio" name="price" value="fair" id="price-fair">About right</label>
+        <label class="choice"><input type="radio" name="price" value="low" id="price-low">I’d pay more</label>
+        <label class="choice"><input type="radio" name="price" value="unsure" id="price-unsure">Not sure</label>
+      </div>
+    </fieldset>
+
+    <h2>Anything else</h2>
+
+    <div class="field" data-field data-label="Anything else">
+      <label class="q" for="other">Anything else you’d like me to know?</label>
+      <textarea id="other" name="other" maxlength="2000"></textarea>
+    </div>
+
+    <div class="field" data-field data-label="Contact">
+      <label class="q" for="contact">Your Reddit username or email<span class="hint">Optional. Only if you’d like a reply.</span></label>
+      <input type="text" id="contact" name="contact" maxlength="120" autocomplete="off">
+    </div>
+
+    <div class="pot" aria-hidden="true">
+      <label for="website">Leave this empty</label>
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <p class="privacy">Your answers go to me through Google Forms and are kept in my Google account. Nothing else is collected: no name, email, or device data unless you type it here. Please leave out other people’s private details.</p>
+
+    <div class="send-row">
+      <button type="submit" id="send">Send feedback</button>
+      <p id="status" role="status" aria-live="polite"
+         data-need-reached="Please answer the first question: how far did you get?"
+         data-sending="Sending…"
+         data-failed="It didn’t send. Check your connection and try again. Your answers are still here."></p>
+    </div>
+  </form>
+
+  <section id="thanks" tabindex="-1" hidden>
+    <h2>Thank you</h2>
+    <p>Your feedback was sent. For a screenshot or a screen recording, take it on your iPhone and tap <strong>Share Beta Feedback</strong>, or use <strong>Send Beta Feedback</strong> in TestFlight.</p>
+    <button type="button" class="quiet" id="again">Send more feedback</button>
+  </section>
+
+  <footer>
+    <a href="/us/">Support</a><a href="/us/privacy/">Privacy Policy</a><a href="/us/ja/feedback/" lang="ja">日本語</a>
+  </footer>
+</main>
+<script src="/us/feedback.js"></script>
+</body>
+</html>
