@@ -1,0 +1,397 @@
+/* The introduction page of Us (/us/ and /us/ja/). It adds to us.css: the same paper, ink and
+   type as the support and privacy pages, on a wider page. Nothing is loaded from elsewhere
+   until someone plays the two-minute film. */
+
+body.home main {
+  max-width: 1120px;
+  padding: 24px 20px 72px;
+}
+
+.home h1,
+.home h2,
+.home h3,
+.home .line {
+  font-family: ui-serif, "New York", Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 500;
+}
+
+.home :lang(ja) :is(h1, h2, h3, .line),
+.home:lang(ja) :is(h1, h2, h3, .line) {
+  font-weight: 600;
+  font-feature-settings: "palt";
+  line-break: strict;
+}
+
+/* Short Japanese lines break between phrases where the browser can (お父さ/ん was split without
+   this). Long answers wrap as usual: phrase by phrase they came out ragged. */
+.home:lang(ja) :is(h2, h3, summary, .hero-lead, .terms, .line) { word-break: auto-phrase; }
+
+.home header { margin-bottom: 8px; }
+
+.home nav.lang {
+  display: flex;
+  gap: 20px;
+}
+
+/* ---- The opening: what Us is, where to get it, and the half-minute film. ---- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 48px;
+  align-items: center;
+  padding: 44px 0 64px;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 6.4vw, 74px);
+  line-height: 1.06;
+  letter-spacing: -0.014em;
+  margin: 0 0 24px;
+}
+
+.home:lang(ja) .hero h1 {
+  font-size: clamp(30px, 4.9vw, 56px);
+  line-height: 1.32;
+  letter-spacing: 0.02em;
+}
+
+.hero-lead {
+  font-size: clamp(18px, 1.75vw, 21px);
+  line-height: 1.6;
+  color: var(--secondary);
+  max-width: 33em;
+  margin: 0 0 30px;
+}
+
+.home:lang(ja) .hero-lead { line-height: 1.85; }
+
+.get { margin: 0; }
+
+.store {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  text-decoration: none;
+  padding: 16px 30px;
+  border-radius: 999px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.store:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(36, 56, 75, 0.22);
+}
+
+.store:focus-visible,
+.watch:focus-visible,
+.strip:focus-visible,
+.support summary:focus-visible {
+  outline: 3px solid var(--mustard);
+  outline-offset: 3px;
+}
+
+.terms {
+  color: var(--secondary);
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 18px 0 0;
+}
+
+.film {
+  position: relative;
+  margin: 0;
+  justify-self: center;
+  width: min(100%, 340px);
+}
+
+.film video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  border-radius: 34px;
+  background: #faf5ea;
+  box-shadow: 0 28px 60px rgba(60, 42, 18, 0.22), 0 4px 10px rgba(60, 42, 18, 0.12), 0 0 0 1px var(--rule);
+}
+
+/* ---- The seven pictures from the App Store, side by side: their leaves meet at the edges. ---- */
+
+.frames { margin: 0 -20px 72px; }
+
+.strip {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.strip img {
+  display: block;
+  flex: none;
+  height: clamp(440px, 64vh, 640px);
+  width: auto;
+  aspect-ratio: 660 / 1435;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 1160px) {
+  .frames { margin-inline: 0; }
+  .strip { border-radius: 28px; }
+}
+
+/* ---- The two-minute film. ---- */
+
+.home h2 {
+  border: 0;
+  padding: 0;
+  margin: 0 0 26px;
+  font-size: clamp(27px, 3.4vw, 40px);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.guide { margin: 0 auto 80px; max-width: 880px; }
+
+.watch,
+.player {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #faf5ea;
+  box-shadow: 0 24px 54px rgba(60, 42, 18, 0.2), 0 4px 10px rgba(60, 42, 18, 0.1), 0 0 0 1px var(--rule);
+}
+
+.watch img,
+.player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+/* The round play mark, on the two-minute film's picture and on the half-minute film until it starts. */
+.play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 88px;
+  height: 88px;
+  margin: -44px 0 0 -44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(36, 56, 75, 0.92);
+  box-shadow: 0 10px 26px rgba(26, 42, 57, 0.35);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+/* On the half-minute film the mark sits in the open paper under the card's words; on the
+   two-minute film's picture it sits on the iPhone's screen, clear of the headline. */
+.film .play { top: 82%; }
+.watch .play { left: 81.5%; top: 52%; }
+
+.watch:hover .play,
+button.play:hover { transform: scale(1.06); }
+
+button.play:focus-visible {
+  outline: 3px solid var(--mustard);
+  outline-offset: 3px;
+}
+
+.play::before {
+  content: "";
+  position: absolute;
+  left: 36px;
+  top: 27px;
+  border-style: solid;
+  border-width: 17px 0 17px 27px;
+  border-color: transparent transparent transparent #fbf8f1;
+}
+
+.play span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---- What Us does, in the words of its App Store page. ---- */
+
+.about {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 56px;
+  margin: 0 0 24px;
+}
+
+.topic {
+  padding: 26px 0 28px;
+  border-top: 1px solid var(--rule);
+}
+
+.topic h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 23px;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+
+.topic h3::before {
+  content: "";
+  flex: none;
+  width: 20px;
+  height: 20px;
+  background: url("/us/home/leaf.png") center / contain no-repeat;
+  transform: translateY(3px);
+}
+
+.topic p {
+  margin: 0;
+  color: var(--secondary);
+}
+
+.topic p + p { margin-top: 10px; }
+
+.notes {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  color: var(--secondary);
+  font-size: 15px;
+}
+
+ul.notes { padding-left: 1.2em; }
+
+/* ---- Once more: the mark, the line, the App Store. ---- */
+
+.again {
+  text-align: center;
+  padding: 80px 0 88px;
+}
+
+.again img {
+  width: 150px;
+  height: auto;
+}
+
+.again .line {
+  font-size: clamp(24px, 3.2vw, 36px);
+  line-height: 1.3;
+  margin: 14px 0 28px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .again img { filter: brightness(0) invert(0.92) sepia(0.15); }
+}
+
+/* ---- Support: the questions people ask, and where to write. ---- */
+
+.support,
+.home footer {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.support h2 {
+  text-align: left;
+  font-size: 32px;
+  margin: 0 0 14px;
+  padding-top: 44px;
+  border-top: 1px solid var(--rule);
+}
+
+.support h3 {
+  font-size: 22px;
+  margin: 40px 0 8px;
+}
+
+.support details { border-bottom: 1px solid var(--rule); }
+
+.support summary {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  padding: 16px 36px 16px 0;
+}
+
+.support summary::-webkit-details-marker { display: none; }
+
+.support summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 11px;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+
+.support details[open] summary::after { content: "\2013"; }
+
+.support details p { margin: 0 0 18px; }
+
+/* ---- Narrow screens: one column, the film after the words. ---- */
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    padding: 28px 0 52px;
+  }
+
+  .film { width: min(100%, 300px); }
+
+  .about { grid-template-columns: minmax(0, 1fr); }
+
+  .guide { margin-bottom: 64px; }
+
+  .watch,
+  .player { border-radius: 18px; }
+
+  .play {
+    width: 68px;
+    height: 68px;
+    margin: -34px 0 0 -34px;
+  }
+
+  .play::before {
+    left: 28px;
+    top: 21px;
+    border-width: 13px 0 13px 21px;
+  }
+
+  /* Smaller still on the two-minute film's picture, where it sits on a small iPhone screen. */
+  .watch .play {
+    width: 52px;
+    height: 52px;
+    margin: -26px 0 0 -26px;
+  }
+
+  .watch .play::before {
+    left: 21px;
+    top: 16px;
+    border-width: 10px 0 10px 16px;
+  }
+
+  .again { padding: 60px 0 68px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .store,
+  .play { transition: none; }
+}
